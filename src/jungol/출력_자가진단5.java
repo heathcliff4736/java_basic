@@ -1,9 +1,9 @@
 package jungol;
 
-public class 출력_자가진단4 {
+public class 출력_자가진단5 {
     public static void main(String[] args) {
-        System.out.printf("(@) (@)\n" +
-                "(=^.^=)\n" +
-                "(-m-m-)");
+        String str = "I can program well.\n" +
+                "Dreams come true.";
+        System.out.println(str);
     }
 }
