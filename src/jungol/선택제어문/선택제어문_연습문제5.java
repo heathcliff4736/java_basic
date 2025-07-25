@@ -1,4 +1,4 @@
-package jungol;
+package jungol.선택제어문;
 
 import java.util.Scanner;
 
