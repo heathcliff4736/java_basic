@@ -6,17 +6,24 @@ public class 반복제어문1_자가진단2 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
         int n = sc.nextInt();
 
-        while (true) {
-            int i = 0;
+        int sum = 0;
+        int i = 0;
 
-            if (i == n) {
+        while (true) {
+            i = i + 1;
+            if (i > n) {
                 break;
             }
 
+            sum = sum + i;
+//            System.out.println(i);
+//            System.out.println(n);
+//            System.out.println(sum);
         }
+        System.out.println(sum);
+//        System.out.println(n);
     }
 }
 
