@@ -11,10 +11,14 @@ public class 선택제어문_자가진단9 {
         int num2 = in.nextInt();
         int num3 = in.nextInt();
 
-        int res2 = (num1 > num2) ? num1 : num2;
-        int res = num1 > num2 ? num1 : (num2 > num3) ? num2 : num3;
+//        int res2 = (num1 < num2) ? num1 : num2;
+        int res = (num1 < num2) ? (num1 < num3 ? num1 : num3) : (num2 < num3 ? num2 : num3);
 
-        System.out.println(res2);
+
+
+//                    (a > b) ? (a > c ? a : c) : (b > c ? b : c);
+
+//        System.out.println(res2);.
         System.out.println(res);
 
     }
