@@ -14,10 +14,10 @@ public class 선택제어문_연습문제2 {
 
         if (num1 > num2){
 
-            System.out.printf("입력받은 수 중 큰 수는 %s이고 작은 수는 %s입니다. ", num1 , num2);
+            System.out.printf("입력받은 수 중 큰 수는 %d이고 작은 수는 %d입니다. ", num1 , num2);
         } else {
             
-            System.out.printf("입력받은 수 중 큰 수는 %s이고 작은 수는 %s입니다. ", num2 , num1);
+            System.out.printf("입력받은 수 중 큰 수는 %d이고 작은 수는 %d입니다. ", num2 , num1);
         }
     }
 }

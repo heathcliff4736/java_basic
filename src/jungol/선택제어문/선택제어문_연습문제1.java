@@ -8,7 +8,8 @@ public class 선택제어문_연습문제1 {
         Scanner in = new Scanner(System.in);
         int num1 = in.nextInt();
 
-        System.out.printf("%s\n", num1);
+//        System.out.printf("%s\n", num1);
+        System.out.println(num1);
 
         if (num1 > 10){
             System.out.printf("10보다 큰 수를 입력하셨습니다.");
