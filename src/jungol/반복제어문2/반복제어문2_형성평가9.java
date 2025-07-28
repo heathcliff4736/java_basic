@@ -7,11 +7,10 @@ public class 반복제어문2_형성평가9 {
 
         Scanner sc = new Scanner(System.in);
         int num1 = sc.nextInt();
-        int num2 = sc.nextInt();
 
         for(int i=1; i<=num1; i++){
-            for(int j=1; j<=num2; j++){
-                System.out.print(i*j+" ");
+            for(int j=1; j<=num1; j++){
+                System.out.printf("(%d, %d) ", i, j);
             }
             System.out.println();
         }
