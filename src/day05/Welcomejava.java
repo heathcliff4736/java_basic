@@ -15,7 +15,7 @@ public class Welcomejava {
         System.out.print("연락처를 입력하세요 : ");
         userMobile = sc.nextLine();
 
-        Outter:
+        Outer:
         while (true) {
             System.out.println("*****************************************************************");
             System.out.println("                Welcome to Shopping Mall");
@@ -54,7 +54,7 @@ public class Welcomejava {
                     break;
                 case 8:
                     System.out.println("시스템이 종료됩니다. ");
-                    break Outter;
+                    break Outer;
                 default:
                     System.out.println("1~8의 숫자만 입력해주세요. ");
                     break;
