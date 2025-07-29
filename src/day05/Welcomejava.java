@@ -27,9 +27,9 @@ public class Welcomejava {
             System.out.println("7. 영수증 표시하기          8. 종료");
             System.out.println("*****************************************************************");
             System.out.print("메뉴 번호를 선택해주세요 ");
-            int sc1 = sc.nextInt();
+            int menuNumber = sc.nextInt();
 
-            switch (sc1) {
+            switch (menuNumber) {
                 case 1:
                     System.out.println("현재 고객 정보 :");
                     System.out.printf("이름 %s   연락처 %s\n", userName, userNumber);
