@@ -7,13 +7,13 @@ public class Welcomejava {
 
         Scanner sc = new Scanner(System.in);
         String userName;
-        String userNumber;
+        String userMobile;
 
         System.out.print("당신의 이름을 입력하세요 : ");
         userName = sc.nextLine();
 
         System.out.print("연락처를 입력하세요 : ");
-        userNumber = sc.nextLine();
+        userMobile = sc.nextLine();
 
         Outter:
         while (true) {
@@ -32,7 +32,7 @@ public class Welcomejava {
             switch (menuNumber) {
                 case 1:
                     System.out.println("현재 고객 정보 :");
-                    System.out.printf("이름 %s   연락처 %s\n", userName, userNumber);
+                    System.out.printf("이름 %s   연락처 %s\n", userName, userMobile);
                     break;
                 case 2:
                     System.out.println("장바구니 상품 목록입니다.");
