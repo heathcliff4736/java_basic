@@ -33,33 +33,31 @@ public class Welcomejava {
                 case 1:
                     System.out.println("현재 고객 정보 :");
                     System.out.printf("이름 %s   연락처 %s\n", userName, userNumber);
-                    continue;
+                    break;
                 case 2:
                     System.out.println("장바구니 상품 목록입니다.");
-
-                    continue;
+                    break;
                 case 3:
                     System.out.println("장바구니를 비웁니다.");
-
-                    continue;
+                    break;
                 case 4:
                     System.out.println("장바구니에 추가할 항목을 입력해주세요. ");
-                    continue;
+                    break;
                 case 5:
                     System.out.println("장바구니의 항목 수량 줄이기를 선택하셨습니다. ");
-
-                    continue;
+                    break;
                 case 6:
                     System.out.println("장바구니의 항목을 삭제합니다. ");
-
-                    continue;
+                    break;
                 case 7:
                     System.out.println("영수증을 표시합니다.");
-
-                    continue;
+                    break;
                 case 8:
                     System.out.println("시스템이 종료됩니다. ");
                     break Outter;
+                default:
+                    System.out.println("1~8의 숫자만 입력해주세요. ");
+                    break;
             }
         }
     }

@@ -10,14 +10,17 @@ public class 반복제어문3_형성평가4 {
         int n = 3;
 
         for (int i=1; i<=n; i++){
-            for (int j=1; j<=i; j++) {
+            for (int j=1; j<i; j++) {
+                System.out.print(j+"_");
+            }
+            for (int j=i*2; j>1; j--) {
                 System.out.print("*");
             }
             System.out.println();
         }
         for (int i=1; i<=n; i++){
-            for (int j=n; j>i; j--) {
-                System.out.print("*");
+            for (int j=n-1; j>i; j--) {
+                System.out.print(j+"_");
             }
             System.out.println();
         }
