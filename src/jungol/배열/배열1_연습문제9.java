@@ -19,6 +19,7 @@ public class 배열1_연습문제9 {
                 array[i] = temp;
                 temp = array[i+1];
             }
+            System.out.print("temp : "+temp+"  ");
         }
 
         for (int i = 0; i < array.length; i++) {

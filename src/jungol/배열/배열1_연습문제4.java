@@ -8,18 +8,18 @@ public class 배열1_연습문제4 {
 
         int inputNum;
         int i = 0;
-        int[] Array = new int[100];
-//        int size = Array.length;
+        int[] array = new int[100];
+//        int size = array.length;
 
         do {
             inputNum = sc.nextInt();
-            Array[i] = inputNum;
+            array[i] = inputNum;
             i++;
         } while (inputNum != 0);
         int size = i;
 
         for(i=1; i<size-1; i+=2){
-            System.out.print(Array[i]+" ");
+            System.out.print(array[i]+" ");
         }
 
     }
