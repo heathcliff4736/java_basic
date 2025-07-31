@@ -12,38 +12,46 @@ public class JavaBasic9 {
         int max;
         double avg = 0.0;
         int[] scores = null;
-        while(true){
+        boolean bool1 = true;
+        while (bool1) {
             System.out.println("=====================================================");
             System.out.println("1.학생수  | 2.점수입력  | 3.점수리스트  | 4.분석  | 5. 종료");
             System.out.println("=====================================================");
             System.out.print("선택> ");
             sc1 = sc.nextLine();
-            if(sc1.equals("1")){
-                System.out.print("학생수> ");
-                scores = new int[sc2.nextInt()];
-            } else if (sc1.equals("2")){
-                for (int j = 0; j < scores.length; j++) {
-                    System.out.printf("scores[%d]: ", j);
-                    scores[j] = sc2.nextInt();
+
+            switch (sc1) {
+                case "1":
+                    System.out.print("학생수> ");
+                    scores = new int[sc2.nextInt()];
+                    break;
+                case "2":
+                    for (int j = 0; j < scores.length; j++) {
+                        System.out.printf("scores[%d]: ", j);
+                        scores[j] = sc2.nextInt();
 //                    sum += scores[j];
 //                    avg = (double) sum/(scores.length);
-                }
-                System.out.println();
-            } else if (sc1.equals("3")){
-                for (int j = 0; j < scores.length; j++) {
-                    System.out.printf("scores[%d]: %d\n", j, scores[j]);
-                }
-            } else if (sc1.equals("4")){
-                max = Arrays.stream(scores).max().getAsInt();
-                avg = Arrays.stream(scores).average().getAsDouble();
-                System.out.printf("최고 점수: %d\n평균 점수: %.1f\n", max, avg);
+                    }
+                    System.out.println();
+                    break;
+                case "3":
+                    for (int j = 0; j < scores.length; j++) {
+                        System.out.printf("scores[%d]: %d\n", j, scores[j]);
+                    }
+                    break;
+                case "4":
+                    max = Arrays.stream(scores).max().getAsInt();
+                    avg = Arrays.stream(scores).average().getAsDouble();
+                    System.out.printf("최고 점수: %d\n평균 점수: %.1f\n", max, avg);
+                    break;
+                case "5":
+                    System.out.println("프로그램 종료");
+                    bool1 = false;
+                    break;
+                default:
+                    System.out.println("잘못입력하셨습니다.");
+                    break;
 
-            } else if (sc1.equals("5")){
-                System.out.println("프로그램 종료");
-                break;
-            }
-            else {
-                System.out.println("잘못입력하셨습니다.");
             }
         }
     }
