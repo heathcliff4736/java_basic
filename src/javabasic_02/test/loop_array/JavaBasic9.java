@@ -9,10 +9,9 @@ public class JavaBasic9 {
         Scanner sc2 = new Scanner(System.in);
         String sc1;
         int sum = 0;
-        int max = 0;
+        int max;
         double avg = 0.0;
         int[] scores = null;
-        max = Integer.MAX_VALUE;
         while(true){
             System.out.println("=====================================================");
             System.out.println("1.학생수  | 2.점수입력  | 3.점수리스트  | 4.분석  | 5. 종료");

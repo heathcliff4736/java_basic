@@ -14,6 +14,6 @@ public class JavaBasic3 {
             if (firstDice+secondDice==5) break;
 
         }
-
+        System.out.println("숫자의 합이 5가 되는 경우의 수");
     }
 }
