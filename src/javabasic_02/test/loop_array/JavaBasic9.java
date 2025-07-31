@@ -25,8 +25,8 @@ public class JavaBasic9 {
                 for (int j = 0; j < scores.length; j++) {
                     System.out.printf("scores[%d]: ", j);
                     scores[j] = sc2.nextInt();
-                    sum += scores[j];
-                    avg = (double) sum/(scores.length);
+//                    sum += scores[j];
+//                    avg = (double) sum/(scores.length);
                 }
                 System.out.println();
             } else if (sc1.equals("3")){
@@ -34,10 +34,8 @@ public class JavaBasic9 {
                     System.out.printf("scores[%d]: %d\n", j, scores[j]);
                 }
             } else if (sc1.equals("4")){
-//                for (int i : scores) {
-//                    max = Math.max(max, i);
-//                }
                 max = Arrays.stream(scores).max().getAsInt();
+                avg = Arrays.stream(scores).average().getAsDouble();
                 System.out.printf("최고 점수: %d\n평균 점수: %.1f\n", max, avg);
 
             } else if (sc1.equals("5")){
