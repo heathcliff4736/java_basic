@@ -20,21 +20,27 @@ public class DoubleArrayEx01 {
         scores[2][0] = 100;
         scores[2][1] = 90;
         scores[2][2] = 90;
-        
+
         // 각 학생들의 국어, 영어, 수학 점수를 학생별로 출력하세요
+        System.out.printf("%8s 국어 영어 수학 총점 평균\n","");
         for (int i = 0; i < scores.length; i++) {
+            int sum = 0; // 총점
             int[] score = scores[i];
+            System.out.print("학생 " +(i+1)+":  ");
             for (int j = 0; j < score.length; j++) {
-                System.out.println(score[j]);
+                System.out.print(score[j]+" ");
             }
+            System.out.println();
         }
-        System.out.println();
+
         System.out.println();
 
-        for (int[] score : scores) {
+        /*for (int[] score : scores) {
+            System.out.print("학생 ");
             for (int s : score) {
-                System.out.println(s);
+                System.out.print(s+" ");
             }
-        }
+            System.out.println();
+        }*/
     }
 }

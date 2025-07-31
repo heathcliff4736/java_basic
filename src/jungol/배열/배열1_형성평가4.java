@@ -7,17 +7,17 @@ public class 배열1_형성평가4 {
         Scanner sc = new Scanner(System.in);
 
         Integer[] outputArray = new Integer[100];
-        while (true){
-            int i=0;
-            if (sc.nextInt()==-1){
-                for (int j = outputArray.length-3; j < outputArray.length; j++) {
-                    System.out.print(outputArray[j]+" ");
-                }
-                break;
-            }
-            else outputArray[i] = sc.nextInt();
-            i++;
-            if (i>99) break;
+        int i, cnt = 0;
+
+        for (i = 0; i < outputArray.length; i++) {
+            outputArray[i] = sc.nextInt();
+
+            if (outputArray[i] == -1) break;
+
+            cnt++;
+        }
+        for (i = cnt-3; i < cnt; i++) {
+            System.out.print(outputArray[i]+" ");
         }
     }
 }
