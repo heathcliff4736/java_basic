@@ -6,25 +6,26 @@ public class JavaBasic8 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
         int scIn;
         String sc1;
-        boolean bool1 = true;
+        int bankAccount = 0;
 
-        while (bool1){
+        while (true){
             System.out.println("=======================================");
             System.out.println("1. 예금  | 2. 출금  | 3. 잔고  | 4. 종료  ");
             System.out.println("=======================================");
             System.out.print("선택> ");
             sc1 = sc.nextLine();
-            int bankAccount = 0;
+
 
             if(sc1.equals("1")) {
                 System.out.printf("예금액>");
-                scIn = sc.nextInt();
+                scIn = sc2.nextInt();
                 bankAccount += scIn;
             } else if (sc1.equals("2")){
                 System.out.printf("출금액>");
-                scIn = sc.nextInt();
+                scIn = sc2.nextInt();
                 bankAccount -= scIn;
             } else if (sc1.equals("3")){
                 System.out.printf("잔고>%d", bankAccount);
@@ -36,7 +37,6 @@ public class JavaBasic8 {
             else {
                 System.out.println("잘못 입력하셨습니다.");
                 System.out.println(sc1);
-//                bool1 = false;
                 break;
             }
             System.out.println();
