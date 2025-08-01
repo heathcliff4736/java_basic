@@ -7,17 +7,18 @@ public class 배열1_형성평가4 {
         Scanner sc = new Scanner(System.in);
 
         Integer[] outputArray = new Integer[100];
-        int i, cnt = 0;
+        int cnt = 0;
 
-        for (i = 0; i < outputArray.length; i++) {
-            outputArray[i] = sc.nextInt();
-
-            if (outputArray[i] == -1) break;
-
-            cnt++;
+        for (int i = 0; i < outputArray.length; i++) {
+            int input = sc.nextInt();
+            if (input == -1) break;
+            outputArray[cnt++] = input;
         }
-        for (i = cnt-3; i < cnt; i++) {
-            System.out.print(outputArray[i]+" ");
+
+        // 입력받은 수가 3개 이하일 때 ?
+        int start = (cnt < 3) ? 0 : cnt - 3;
+        for (int i = start; i < cnt; i++) {
+            System.out.print(outputArray[i] + " ");
         }
     }
 }
