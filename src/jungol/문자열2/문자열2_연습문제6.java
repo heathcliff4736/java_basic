@@ -15,10 +15,11 @@ public class 문자열2_연습문제6 {
         StringBuffer sb2 = new StringBuffer(input2);
         String temp = input.substring(0,3);
         String temp2 = input2.substring(0,3);
+        sb1 = sb1.delete(0,3);
 
-        System.out.println(sb1);
-        System.out.println(sb1.insert(3,temp2));
-        System.out.println(sb2);
+//        System.out.println(sb1);
+        System.out.println(sb1.insert(0,temp2));
+//        System.out.println(sb2);
         System.out.println(sb2.append(temp));
 
     }
