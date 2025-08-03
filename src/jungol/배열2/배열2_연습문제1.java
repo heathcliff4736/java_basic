@@ -5,19 +5,17 @@ import java.util.Scanner;
 public class 배열2_연습문제1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] array = null;
+        int[] arrayInt = new int[10];
 
-        for(int i=0; i<array.length; i++){
-            array[i] = sc.nextInt();
+        while (true) {
+            int n = sc.nextInt();
+            if (n < 1 || n > 10) break;
+
+            arrayInt[n - 1]++;
         }
 
-        for(int i=0; i<array.length; i++){
-            System.out.print(array[i]+" ");
+        for (int i = 0; i < arrayInt.length; i++) {
+            if (arrayInt[i]>0) System.out.print(i+1+" : "+arrayInt[i] + "개\n");
         }
-
-//        for (int i : array) {
-//            System.out.print(i);
-//        }
-
     }
 }
