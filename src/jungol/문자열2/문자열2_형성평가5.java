@@ -2,35 +2,30 @@ package jungol.문자열2;
 
 import java.util.Scanner;
 
-public class 문자열2_연습문제7 {
+public class 문자열2_형성평가5 {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+
         String[] arrayStr = new String[5];
 
-        // 5개의 단어 입력
+
         for (int i = 0; i < 5; i++) {
             arrayStr[i] = sc.nextLine();
         }
 
-        // 문자 1개와 문자열 1개 입력
-        String findChar = sc.nextLine();  // 문자 1개 (문자열로 받음)
-        String findStr = sc.nextLine();   // 문자열 1개
-
+        String findChar = sc.nextLine();
+        String findStr = sc.nextLine();
         int count = 0;
-
         for (int i = 0; i < arrayStr.length; i++) {
             String word = arrayStr[i];
 
-            // 하나라도 포함되면 출력
             if (word.contains(findChar) || word.contains(findStr)) {
                 System.out.println(word);
                 count++;
             }
-        }
 
-        if (count == 0) {
-            System.out.println("none");
         }
+        if (count == 0) System.out.println("none");
     }
 }

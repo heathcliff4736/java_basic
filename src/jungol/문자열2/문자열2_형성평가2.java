@@ -12,10 +12,10 @@ public class 문자열2_형성평가2 {
         String str = sc.next();
 
         for (int i = 0; i < arrayStr.length; i++) {
-            String newStr = arrayStr[i].substring(0, 1);
+            String newStr = arrayStr[i].substring(1, arrayStr[i].length());
             int index = newStr.indexOf(str);
 //            System.out.println(index);
-            if (index == 1 || index == 2) {
+            if (index == 0 || index == 1) {
                 System.out.println(arrayStr[i]);
                 count++;
             }
