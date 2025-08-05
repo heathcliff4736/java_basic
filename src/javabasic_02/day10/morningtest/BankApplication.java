@@ -55,12 +55,15 @@ public class BankApplication {
             if (accountNo.equals(arrayAccount[i].getAccountNo())) {
                 // 셋발란스 = 겟발란스 + 입력받은 발란스
                 arrayAccount[i].setBalance((balance - arrayAccount[i].getBalance()));
+            } else {
+                System.out.println("해당하는 계좌가 존재하지 않습니다.");
             }
         }
+        System.out.println("결과: 예금이 성공적으로 완료되었습니다.");
     }
 
     // 4. 출금 기능           - private static void withdraw()
-    private static void withdraw(){
+    private static void withdraw() {
         System.out.println("-------------------");
         System.out.println("      출금      ");
         System.out.println("-------------------");
@@ -72,12 +75,15 @@ public class BankApplication {
         for (int i = 0; i < accountCount; i++) {
             if (accountNo.equals(arrayAccount[i].getAccountNo())) {
                 arrayAccount[i].setBalance((balance - arrayAccount[i].getBalance()));
+            } else {
+                System.out.println("해당하는 계좌가 존재하지 않습니다.");
             }
         }
+        System.out.println("결과: 출금이 성공적으로 완료되었습니다.");
     }
 
     // 5. 프로그램 종료 기능   - private static void exit()
-    private static void exit(){
+    private static void exit() {
         System.out.println("프로그램 종료");
         run = false;
     }
