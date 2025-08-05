@@ -18,7 +18,19 @@ public class BankApplication {
         System.out.print("계좌주 : ");
         String owner = in.nextLine();
         System.out.print("초기입금액 : ");     // 계산을 위한 정수로 형변환
-        int balance = Integer.parseInt(in.nextLine());
+        int balance;
+
+        try {
+            balance = Integer.parseInt(in.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력 가능합니다. 메뉴로 돌아갑니다.");
+            return;
+        }
+
+        if (balance < 0) {
+            System.out.println("음수는 입력할 수 없습니다. 메뉴로 돌아갑니다.");
+            return;
+        }
 
         // 새로운 계좌 생성
         Account newAccount = new Account(accountNo, owner, balance);
@@ -48,7 +60,20 @@ public class BankApplication {
         System.out.print("계좌번호 : ");
         String accountNo = in.nextLine();
         System.out.print("예금액 : ");
-        int balance = Integer.parseInt(in.nextLine());
+        int balance;
+
+        try {
+            balance = Integer.parseInt(in.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력 가능합니다. 메뉴로 돌아갑니다.");
+            return;
+        }
+
+        if (balance < 0) {
+            System.out.println("음수는 입력할 수 없습니다. 메뉴로 돌아갑니다.");
+            return;
+        }
+
         // 계좌 있는만큼 포문 돌리고
         for (int i = 0; i < accountCount; i++) {
             // 계좌번호 같은걸 찾으면
@@ -70,7 +95,19 @@ public class BankApplication {
         System.out.print("계좌번호 : ");
         String accountNo = in.nextLine();
         System.out.print("출금액 : ");
-        int balance = Integer.parseInt(in.nextLine());
+        int balance;
+
+        try {
+            balance = Integer.parseInt(in.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력 가능합니다. 메뉴로 돌아갑니다.");
+            return;
+        }
+
+        if (balance < 0) {
+            System.out.println("음수는 입력할 수 없습니다. 메뉴로 돌아갑니다.");
+            return;
+        }
 
         for (int i = 0; i < accountCount; i++) {
             if (accountNo.equals(arrayAccount[i].getAccountNo())) {

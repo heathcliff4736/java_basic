@@ -21,8 +21,13 @@ public class Account {
     public int getBalance() { return this.balance; }
 
     public void setBalance(int balance) {
-        if (balance < MIN_BALANCE || balance > MAX_BALANCE) this.balance = getBalance();
-        else this.balance = balance;
+        if (balance < MIN_BALANCE || balance > MAX_BALANCE) {
+            this.balance = getBalance();
+            System.out.println("입력 범위를 초과하였습니다.");
+        }
+        else {
+            this.balance = balance;
+        }
     }
 
 }
