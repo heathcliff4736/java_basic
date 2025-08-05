@@ -1,4 +1,4 @@
-package project;
+package BookMarket;
 
 import java.util.Scanner;
 
@@ -144,15 +144,19 @@ public class Welcome {
     public static void menuCartRemoveItemCount() {
         System.out.println("5. 장바구니의 항목 수량 줄이기");
     }
+
     public static void menuCartRemoveItem() {
         System.out.println("6. 장바구니의 항목 삭제하기");
     }
+
     public static void menuCartBill() {
         System.out.println("7. 영수증 표시하기");
     }
+
     public static void menuExit() {
         System.out.println("8. 종료");
     }
+
     public static void BookList(String[][] book) {
 
         book[0][0] = "ISBN1234";
