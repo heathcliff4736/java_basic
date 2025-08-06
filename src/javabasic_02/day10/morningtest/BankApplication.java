@@ -6,6 +6,7 @@ public class BankApplication {
     static Scanner in = new Scanner(System.in);
     static Account[] arrayAccount = new Account[100];
     static int accountCount = 0;
+    static int choice;
     static boolean run = true;
 
     // 1. 계좌생성 기능        - private static void createAccount()
@@ -79,7 +80,7 @@ public class BankApplication {
             // 계좌번호 같은걸 찾으면
             if (accountNo.equals(arrayAccount[i].getAccountNo())) {
                 // 셋발란스 = 겟발란스 + 입력받은 발란스
-                arrayAccount[i].setBalance((balance - arrayAccount[i].getBalance()));
+                arrayAccount[i].setBalance((balance + arrayAccount[i].getBalance()));
                 System.out.println("결과: 예금이 성공적으로 완료되었습니다.");
             } else {
                 System.out.println("해당하는 계좌가 존재하지 않습니다.");
@@ -131,26 +132,35 @@ public class BankApplication {
         run = false;
     }
 
-    // Bank application 시작 - main()
-    public static void main(String[] args) {
-
-        while (run) {
-            String menu = """
+    private static void printmenu(){
+        String menu = """
                     ---------------------------------------------
                     1.계좌생성 | 2.계좌목록 | 3.예금 | 4.출금 | 5.종료
                     ---------------------------------------------
                     """;
-            System.out.print(menu);
-            System.out.print("선택> ");
+        System.out.print(menu);
+        System.out.print("선택> ");
+    }
 
-            int choice = Integer.parseInt(in.nextLine());
+    // Bank application 시작 - main()
+    public static void main(String[] args) {
+
+        while (run) {
+
+            printmenu();
+            try {
+                choice = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("숫자만 입력 가능합니다. 메뉴로 돌아갑니다.");
+            }
+
             switch (choice) {
                 case 1 -> createAccount();
                 case 2 -> accountList();
                 case 3 -> deposit();
                 case 4 -> withdraw();
                 case 5 -> exit();
-                default -> System.out.println("1~5의 숫자를 입력하세요6");
+                default -> System.out.println("1~5의 숫자를 입력하세요. ");
             }
         }
     }
