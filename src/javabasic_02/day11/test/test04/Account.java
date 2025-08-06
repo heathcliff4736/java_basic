@@ -23,11 +23,11 @@ public class Account {
 
     void save(int save) {
         setBalance(this.balance + save);
-        System.out.println(accNo + " 계좌에 " + save + "만원이 입금되었습니다.");
+        System.out.println(getAccNo() + " 계좌에 " + save + "만원이 입금되었습니다.");
     }
 
     void deposit(int deposit) {
         setBalance(this.balance - deposit);
-        System.out.println(accNo + " 계좌에 " + deposit + "만원이 출금되었습니다.");
+        System.out.println(getAccNo() + " 계좌에 " + deposit + "만원이 출금되었습니다.");
     }
 }

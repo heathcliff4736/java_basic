@@ -36,7 +36,7 @@ public class Emp {
     }
 
     public String toString(){
-        String toString = name+"("+id+")"+"사원의 기본급은 "+baseSalary+"원 입니다.";
+        String toString = getName()+"("+getId()+")"+"사원의 기본급은 "+getBaseSalary()+"원 입니다.";
         return toString;
     }
 }

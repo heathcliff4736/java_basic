@@ -1,6 +1,6 @@
 package javabasic_02.day11.test.test01;
 
-public class TestMovie extends Movie{
+public class TestMovie {
     public static void main(String[] args) {
         Movie myMovie = new Movie();
         myMovie.setTitle("어거스트 러쉬");

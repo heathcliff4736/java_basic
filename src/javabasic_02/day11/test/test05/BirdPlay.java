@@ -14,9 +14,7 @@ public class BirdPlay {
 		sparrow.fly();
 		sparrow.sing();
 		System.out.println(sparrow.toString());
-		
-		
-	}
 
+	}
 
 }

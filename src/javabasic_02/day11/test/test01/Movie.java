@@ -1,7 +1,5 @@
 package javabasic_02.day11.test.test01;
 
-import javabasic_02.day10.morningtest.Account;
-
 public class Movie {
 
     private String title;
