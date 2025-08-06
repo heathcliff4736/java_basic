@@ -30,6 +30,6 @@ public class Student {
     }
 
     public void print(){
-        System.out.printf("이   름 : %s    나 이 : %d     학   번 : %d\n", name, age, id);
+        System.out.printf("이   름 : %s    나 이 : %d     학   번 : %d\n", getName(), getAge(), getId());
     }
 }

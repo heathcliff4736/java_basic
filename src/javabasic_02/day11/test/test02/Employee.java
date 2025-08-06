@@ -31,6 +31,6 @@ public class Employee {
     }
 
     public void print(){
-        System.out.printf("이   름 : %s    나 이 : %d     부   서 : %s\n", name, age, dept);
+        System.out.printf("이   름 : %s    나 이 : %d     부   서 : %s\n", getName(), getAge(), getDept());
     }
 }

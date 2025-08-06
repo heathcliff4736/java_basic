@@ -30,6 +30,6 @@ public class Teacher {
     }
 
     public void print(){
-        System.out.printf("이   름 : %s    나 이 : %d     담당과목 : %s\n", name, age, subject);
+        System.out.printf("이   름 : %s    나 이 : %d     담당과목 : %s\n", getName(), getAge(), getSubject());
     }
 }
