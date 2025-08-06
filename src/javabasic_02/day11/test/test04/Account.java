@@ -5,11 +5,11 @@ public class Account {
     private int balance;
 
     public int getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public String getAccNo() {
-        return accNo;
+        return this.accNo;
     }
 
     public void setAccNo(String accNo) {

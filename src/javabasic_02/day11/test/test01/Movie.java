@@ -5,14 +5,12 @@ public class Movie {
     private String title;
     private String genre;
 
-    public String setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
-        return title;
     }
 
-    public String setGenre(String genre){
+    public void setGenre(String genre) {
         this.genre = genre;
-        return genre;
     }
 
     void play(){

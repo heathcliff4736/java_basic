@@ -31,5 +31,6 @@ public class Student {
 
     public void print(){
         System.out.printf("이   름 : %s    나 이 : %d     학   번 : %d\n", getName(), getAge(), getId());
+//        System.out.printf("이   름 : %s    나 이 : %d     학   번 : %d\n", this.name, this.age, this.id);
     }
 }
