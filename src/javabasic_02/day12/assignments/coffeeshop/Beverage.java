@@ -4,6 +4,14 @@ public abstract class Beverage {
     private String name;
     protected int price;
 
+    public Beverage(String name) {
+        this.name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -12,17 +20,11 @@ public abstract class Beverage {
         return price;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setPrice(int price) {
         this.price = price;
     }
 
-    public Beverage(String name){}
-
-    public abstract void CalPrice();
+    public abstract void calcPrice();
 
     void print(){
         System.out.println("");

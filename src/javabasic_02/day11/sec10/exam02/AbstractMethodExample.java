@@ -4,6 +4,4 @@ public class AbstractMethodExample {
 	public static void main(String[] args) {
 
 	}
-
-
 }
