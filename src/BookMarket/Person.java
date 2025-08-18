@@ -2,15 +2,15 @@ package BookMarket;
 
 public class Person {
     private String name;
-    private String phone;
+    private int phone;
     private String address;
 
-    public Person(String name, String phone) {
+    public Person(String name, int phone) {
         this.name = name;
         this.phone = phone;
     }
 
-    public Person(String name, String phone, String address) {
+    public Person(String name, int phone, String address) {
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -24,11 +24,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
