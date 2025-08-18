@@ -1,4 +1,4 @@
-package java_advanced_01.day15.linkedlistEx;
+package java_advanced_01.day15.collection.linkedlistEx;
 
 public class SingleLinkedListEx<T> {
     public Node<T> head = null;

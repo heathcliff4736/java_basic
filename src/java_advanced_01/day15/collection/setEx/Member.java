@@ -1,4 +1,4 @@
-package java_advanced_01.day15.setEx;
+package java_advanced_01.day15.collection.setEx;
 
 public class Member {
     public String name;

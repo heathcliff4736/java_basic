@@ -1,8 +1,4 @@
-package java_advanced_01.day15.linkedlistEx;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+package java_advanced_01.day15.collection.linkedlistEx;
 
 public class LinkedListEx01 {
     public static void main(String[] args) {

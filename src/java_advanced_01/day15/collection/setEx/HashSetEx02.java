@@ -1,4 +1,4 @@
-package java_advanced_01.day15.setEx;
+package java_advanced_01.day15.collection.setEx;
 
 import java.util.HashSet;
 import java.util.Iterator;
