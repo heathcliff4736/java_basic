@@ -14,11 +14,24 @@ public class Fruit implements Comparable<Fruit>{
 
     @Override
     public int compareTo(Fruit o) {
-        if (this.price < o.price) return -1;
-        else if (this.price > o.price) return 1;
+        if (this.price > o.price) return -1;
+        else if (this.price < o.price) return 1;
         else return 0;
     }
 
+    public static void main(String[] args) {
+        Fruit fruit1 = new Fruit("사과", 10000);
+        Fruit fruit2 = new Fruit("귤", 12000);
+        Fruit fruit3 = new Fruit("복숭아", 8000);
+        Fruit fruit4 = new Fruit("포도", 18000);
 
-
+        TreeSet<Fruit> treeSet2 = new TreeSet<Fruit>();
+        treeSet2.add(fruit1);
+        treeSet2.add(fruit2);
+        treeSet2.add(fruit3);
+        treeSet2.add(fruit4);
+        for (Fruit fruit : treeSet2) {
+            System.out.println(fruit.name + " : " + fruit.price);
+        }
+    }
 }

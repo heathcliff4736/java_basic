@@ -19,22 +19,5 @@ public class ComparableEx {
         }
         System.out.println();
 
-
-
-        Fruit fruit1 = new Fruit("사과", 10000);
-        Fruit fruit2 = new Fruit("귤", 12000);
-        Fruit fruit3 = new Fruit("복숭아", 8000);
-        Fruit fruit4 = new Fruit("포도", 18000);
-
-        TreeSet<Fruit> treeSet2 = new TreeSet<Fruit>();
-        treeSet2.add(fruit1);
-        treeSet2.add(fruit2);
-        treeSet2.add(fruit3);
-        treeSet2.add(fruit4);
-        for (Fruit fruit : treeSet2) {
-            System.out.print(fruit.name + " ");
-        }
-
-
     }
 }
