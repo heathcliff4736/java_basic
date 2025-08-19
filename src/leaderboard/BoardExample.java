@@ -21,14 +21,18 @@ public class BoardExample {
     public void list() {
         System.out.println("[게시물 목록]");
         System.out.println("----------------------------------------------------------");
-        System.out.println("no\t\twriter\t\t\sdate\t\t\t\stitle");
+        System.out.println("no\t\s\s\swriter\t\tdate\t\t\t\stitle");
         System.out.println("----------------------------------------------------------");
         for (Board b : board) {
-            System.out.printf("%d\t\t", b.getBno());
-            System.out.printf("%s\t\t\s", b.getBwriter());
-//            System.out.printf("%s\t\t\t\s", b.getBdate());
-            System.out.printf("%s\t\t\t\s", sd.format(b.getBdate()));
-            System.out.printf("%s", b.getBtitle());
+//            System.out.printf("%d\t\t", b.getBno());
+//            System.out.printf("%s\t\t\t\s", b.getBwriter());
+//            System.out.printf("%s\t\t\s", sd.format(b.getBdate()));
+//            System.out.printf("%s", b.getBtitle());
+            System.out.printf("%-6d %-12s %-16s %-20s%n",
+                    b.getBno(),
+                    b.getBwriter(),
+                    sd.format(b.getBdate()),
+                    b.getBtitle());
         }
         System.out.println();
         // 게시물 목록 출력
