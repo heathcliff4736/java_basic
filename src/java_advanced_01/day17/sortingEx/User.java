@@ -1,4 +1,4 @@
-package java_advanced_01.day17.test;
+package java_advanced_01.day17.sortingEx;
 
 public class User{
     public String name;

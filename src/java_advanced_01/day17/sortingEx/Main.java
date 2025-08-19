@@ -1,7 +1,6 @@
-package java_advanced_01.day17.test;
+package java_advanced_01.day17.sortingEx;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Main {
