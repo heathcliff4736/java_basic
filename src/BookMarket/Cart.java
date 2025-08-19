@@ -1,18 +1,18 @@
 package BookMarket;
 
-public class Cart implements CartInterface{
+public class Cart implements CartInterface {
 
     static final int NUM_BOOK = 3;
     CartItem[] mCartItem = new CartItem[NUM_BOOK];
     static int mCartCount = 0;
 
-    public Cart(){
+    public Cart() {
 
     }
 
     @Override
     public void printBookList(Book[] booklist) {
-        for(int i = 0; i < booklist.length; i++) {
+        for (int i = 0; i < booklist.length; i++) {
             System.out.print(booklist[i].getBookId() + " | ");
             System.out.print(booklist[i].getName() + " | ");
             System.out.print(booklist[i].getUnitPrice() + " | ");
@@ -34,7 +34,7 @@ public class Cart implements CartInterface{
         mCartCount = 0;
     }
 
-    public void printCart(){
+    public void printCart() {
         System.out.println("장바구니 상품 목록 :");
         System.out.println("---------------------------------------");
         System.out.println("    도서ID \t|     수량 \t|      합계");
@@ -49,21 +49,28 @@ public class Cart implements CartInterface{
     }
 
     @Override
-    public void removeCare(int numId) {
+    public boolean isCartInBook(String bookId) {
+        boolean flag = false;
+        for (int i = 0; i < mCartCount; i++) {
+            if (bookId == mCartItem[i].getBookID()) {
+                mCartItem[i].setQuantity(mCartItem[i].getQuantity() + 1);
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+    @Override
+    public void removeCart(int numId) {
         CartItem[] cartItem = new CartItem[NUM_BOOK];
         int num = 0;
 
         for (int i = 0; i < mCartCount; i++) {
-            if(numId != i) cartItem[num++] = mCartItem[i];
+            if (numId != i)
+                cartItem[num++] = mCartItem[i];
 
             mCartCount = num;
             mCartItem = cartItem;
         }
     }
-
-    @Override
-    public boolean isCartInBook(String id) {
-        return false;
-    }
-
 }

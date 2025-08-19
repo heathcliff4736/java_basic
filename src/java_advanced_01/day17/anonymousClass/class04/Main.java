@@ -18,13 +18,6 @@ public class Main {
 
         System.out.println(result);
 
-        int result1 = calculator.calculate(new Operate() {
-            @Override
-            public int operate(int a, int b) {
-                return a - b;
-            }
-        });
 
-        System.out.println(result1);
     }
 }

@@ -1,7 +1,5 @@
 package java_advanced_01.day17.anonymousClass.class05;
 
-import java_advanced_01.day17.anonymousClass.class04.Operate;
-
 // 계산을 담당하는 클래스
 public class Calculator {
     // 계산이 필요한 두 수를 저장하는 필드
