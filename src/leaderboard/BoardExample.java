@@ -1,33 +1,35 @@
 package leaderboard;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BoardExample {
 
-    List<Board> board = new ArrayList<Board>();
+    List<Board> boardList = new ArrayList<Board>();
     static Scanner sc = new Scanner(System.in);
-    int boardCount = 1;
-    SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+    private static final String menuNumberRegex = "[1-4]";
+    private static final String checkNumber = "[1-2]";
+    private static final String readOptionRegex = "[1-3]";
+    BoardManager boardManager;
 
-    public static void main(String[] args) {
-        BoardExample board = new BoardExample();
-        board.list();
+    public BoardExample(BoardManager boardManager) {
+        this.boardManager = boardManager;
     }
 
+    int boardCount = 1;
+    SimpleDateFormat sd = new SimpleDateFormat("yyyy.MM.dd");
+
     public void list() {
-        System.out.println("[게시물 목록]");
-        System.out.println("----------------------------------------------------------");
-        System.out.println("no\t\s\s\swriter\t\tdate\t\t\t\stitle");
-        System.out.println("----------------------------------------------------------");
-        for (Board b : board) {
-//            System.out.printf("%d\t\t", b.getBno());
-//            System.out.printf("%s\t\t\t\s", b.getBwriter());
-//            System.out.printf("%s\t\t\s", sd.format(b.getBdate()));
-//            System.out.printf("%s", b.getBtitle());
+        String list =
+                """
+                        [게시물 목록]
+                        ----------------------------------------------------------
+                        no\t\s\s\swriter\t\tdate\t\t\t\stitle
+                        ----------------------------------------------------------
+                        """;
+        Map<String, Board> board = null;
+        System.out.println(list);
+        for (Board b : boardList) {
             System.out.printf("%-6d %-12s %-16s %-20s%n",
                     b.getBno(),
                     b.getBwriter(),
@@ -40,19 +42,25 @@ public class BoardExample {
     }
 
     public void mainMenu() {
+        String menuMain =
+                """
+                        ----------------------------------------------------------
+                        메인 메뉴: 1.Create | 2.Read | 3.Clear | 4.Exit
+                        메뉴 선택:\s""";
+
+        System.out.print(menuMain);
+    }
+
+    public void run() {
         Scanner input = new Scanner(System.in);
         boolean quit = false;
 
         while (!quit) {
-            System.out.println("----------------------------------------------------------");
-            System.out.println("메인 메뉴: 1.Create | 2.Read | 3.Clear | 4.Exit");
-            System.out.print("메뉴 선택: ");
-            int n = input.nextInt();
+            list();
+            String n = input.nextLine();
 
-            if (n < 1 || n > 9) {
-                System.out.println("1부터 4까지의 숫자를 입력하세요.");
-            } else {
-                switch (n) {
+            if (n.matches(menuNumberRegex)) {
+                switch (Integer.parseInt(n)) {
                     case 1 -> creat();
                     case 2 -> read();
                     case 3 -> clear();
@@ -61,6 +69,8 @@ public class BoardExample {
                         quit = true;
                     }
                 }
+            } else {
+                System.out.println("1부터 4까지의 숫자를 입력하세요.");
             }
         }
     }
@@ -86,7 +96,7 @@ public class BoardExample {
             newBoard.setBwriter(writer);
             Date date = new Date();
             newBoard.setBdate(date);
-            board.add(newBoard);
+            boardList.add(newBoard);
         }
         System.out.println();
         list();
@@ -95,13 +105,21 @@ public class BoardExample {
     public void read() {
         System.out.println();
         System.out.println("[게시물 읽기]");
-        System.out.println("bno: ");
+        System.out.print("bno: ");
         int inputBno = sc.nextInt();
-        for (int i = 0; i < board.size(); i++) {
-            if (board.get(i).equals(inputBno)) {
-                board.get(i);
+        System.out.println("#############");
+        for (int i = 0; i < boardList.size(); i++) {
+            if (boardList.get(i).equals(inputBno)) {
+                System.out.println("123");
+//                System.out.println(boardList.get(i));
+//                Board newBoard = new Board();
+//                System.out.println(newBoard.getBno());
+//                System.out.println(newBoard.getBwriter());
+//                System.out.println(newBoard.getBdate());
+//                System.out.println(newBoard.getBtitle());
             }
         }
+        System.out.println("#############");
         list();
     }
 
