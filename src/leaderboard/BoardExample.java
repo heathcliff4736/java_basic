@@ -5,7 +5,7 @@ import java.util.*;
 
 public class BoardExample {
 
-    List<Board> boardList = new ArrayList<Board>();
+    //    List<Board> boardList = new ArrayList<Board>();
     static Scanner sc = new Scanner(System.in);
     private static final String menuNumberRegex = "[1-4]";
     private static final String checkNumber = "[1-2]";
@@ -16,6 +16,7 @@ public class BoardExample {
 
     BoardManager boardManager;
 
+    // 생성자를 통해서 주입 (인젝션)
     public BoardExample(BoardManager boardManager) {
         this.boardManager = boardManager;
     }
@@ -35,15 +36,21 @@ public class BoardExample {
         System.out.println("[게시물 목록]");
         System.out.println("-".repeat(60));
         System.out.printf("%-5s %-10s %-15s %-20s\n", "no", "writer", "date", "title");
+        System.out.println("-".repeat(60));
 
         // Manager에게 전체 게시물목록을 요청
-        List<Map.Entry<String,Board>> entryList = new LinkedList<>(boardMap.entrySet());
+        List<Map.Entry<String, Board>> entryList = new LinkedList<>(boardMap.entrySet());
         Collections.reverse(entryList);
 
         entryList.forEach(entry -> {
             Board value = entry.getValue();
-            System.out.printf("%-5s %-10s %-15s %-20s\n", value.getBno(), value.getBWriter(), dateFormat.format(value.getBDate()), value.getBTitle());
+            System.out.printf("%-5s %-10s %-15s %-20s\n",
+                    value.getBno(),
+                    value.getBWriter(),
+                    dateFormat.format(value.getBDate()),
+                    value.getBTitle());
         });
+        System.out.println();
 
         /*
         for (Board b : boardList) {
@@ -96,7 +103,7 @@ public class BoardExample {
     public boolean checkMenu() {
         System.out.println("보조 메뉴: 1.Ok | 2.Cancel");
         System.out.print("메뉴 선택: ");
-        while(true) {
+        while (true) {
             String input = sc.nextLine();
             if (input.matches(checkNumber)) {
                 return input.equals("1");
@@ -130,42 +137,57 @@ public class BoardExample {
             boardManager.setBoardMap(boardMap);
             bno++;
         }
-//        System.out.println("보조 메뉴: 1.Ok | 2.Cancel");
-//        System.out.print("메뉴 선택: ");
-//        int yn = sc.nextInt();
-//        if (yn == 1) {
-//            Board newBoard = new Board();
-//            newBoard.setBno(bno++);
-//            newBoard.setBtitle(title);
-//            newBoard.setBcontent(content);
-//            newBoard.setBwriter(writer);
-//            Date date = new Date();
-//            newBoard.setBdate(date);
-//            boardList.add(newBoard);
-//        }
         System.out.println();
     }
 
     public void read() {
-        System.out.println();
-        System.out.println("[게시물 읽기]");
-        System.out.print("bno: ");
-        int inputBno = sc.nextInt();
-        System.out.println("#############");
-        for (int i = 0; i < boardList.size(); i++) {
-            if (boardList.get(i).equals(inputBno)) {
-                System.out.println("123");
-//                System.out.println(boardList.get(i));
-//                Board newBoard = new Board();
-//                System.out.println(newBoard.getBno());
-//                System.out.println(newBoard.getBwriter());
-//                System.out.println(newBoard.getBdate());
-//                System.out.println(newBoard.getBtitle());
+        System.out.println("\n[게시물 읽기]");
+        int numberInput = 0;
+        while (true) {
+            System.out.print("bno: ");
+            numberInput = sc.nextInt();
+            try {
+                if (numberInput < 0 || numberInput > boardManager.getBoardMap().size()) {
+                    throw new IllegalArgumentException("해당 게시물은 존재하지 않습니다.");
+                } else {
+                    Map<String, Board> boardMap = boardManager.getBoardMap();
+                    System.out.println("#".repeat(30));
+                    Board boardOne = boardMap.get(String.valueOf(numberInput));
+                    System.out.println("번호: " + boardOne.getBno());
+                    System.out.println("제목: " + boardOne.getBTitle());
+                    System.out.println("내용: " + boardOne.getBContent());
+                    System.out.println("작성자: " + boardOne.getBWriter());
+                    System.out.println("날짜: " + dateFormat.format(boardOne.getBDate()));
+                    System.out.println("#".repeat(30));
+                    readOption(numberInput);
+                    break;
+                }
+            } catch (IllegalArgumentException | InputMismatchException e) {
+                throw new RuntimeException(e);
             }
         }
-        System.out.println("#############");
-        list();
+
+        /*
+        // 게시판은 매니저가 담당하고 있으므로, 매니저 받아온다.
+        Map<String, Board> boardMap = boardManager.getBoardMap();
+        // Manager에게 전체 게시물목록을 요청
+        List<Map.Entry<String, Board>> entryList = new LinkedList<>(boardMap.entrySet());
+        for (Map.Entry<String, Board> entry : entryList) {
+            Board value = entry.getValue();
+            if (value.getBno() == inputBno) {
+                System.out.println("제목: " +value.getBTitle());
+                System.out.println("내용: " +value.getBContent());
+                System.out.println("작성자: " +value.getBWriter());
+                System.out.println("날짜: " +value.getBDate());
+                break; // 찾았으면 멈춤
+            }
+        }*/
+
+        run();
     }
+
+    public void readOption(int numberInput) {}
+
 
     public void clear() {
         list();
@@ -173,6 +195,7 @@ public class BoardExample {
     }
 
     public void exit() {
+        System.out.println("\n** 게시판 종료 **");
     }
 
     public void update() {
