@@ -14,8 +14,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class Board {
     private int bno;
-    private String btitle;
-    private String bcontent;
-    private String bwriter;
-    private Date bdate;
+    private String bTitle;
+    private String bContent;
+    private String bWriter;
+    private Date bDate;
 }
