@@ -127,9 +127,9 @@ public class Welcome {
         System.out.println("---------------------------------------");
         */
 
-//        if (mCart.mCartCount >= 0) {
-//            mCart.printCart();
-//        }
+        if (mCart.mCartCount >= 0) {
+            mCart.printCart();
+        }
     }
 
     public static void menuCartClear() {
@@ -160,7 +160,7 @@ public class Welcome {
             System.out.println("");
         }
         */
-        mCart.printCart();
+        mCart.printBookList(booklist);
 
         boolean quit = false;
 
@@ -272,14 +272,15 @@ public class Welcome {
     }
 
     public static boolean isCartInBook(String bookId) {
-        boolean flag = false;
+//        boolean flag = false;
 //        for (int i = 0; i < mCartCount; i++) {
 //            if (bookId == mCartItem[i].getBookID()) {
 //                mCartItem[i].setQuantity(mCartItem[i].getQuantity() + 1);
 //                flag = true;
 //            }
 //        }
-        return flag;
+//        return flag;
+        return mCart.isCartInBook(bookId);
     }
 
     public static void menuAdminLogin() {

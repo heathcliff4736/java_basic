@@ -32,7 +32,6 @@ public class StreamPipeLineEx {
         System.out.println(averageScore1);
 
 
-
         // 방법 2. 람다식을 주입해서 파이프라인 처리 방식
         double averageScore2 = studentsList.stream()
                 .mapToInt(student -> student.getScore())
