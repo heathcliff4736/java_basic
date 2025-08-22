@@ -1,4 +1,4 @@
-package BookMarket;
+package BookMarket.com.market.member;
 
 public class Person {
     private String name;
