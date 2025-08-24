@@ -22,7 +22,7 @@ public class CollectExample {
 		maleList.forEach(student -> System.out.println(student.getName()));
 		System.out.println();
 
-		//여학생만 묶어 List 생성
+		//여학생만 묶어 List 생성git
 		List<Student> femaleList = map.get("여");
 		femaleList.forEach(student -> System.out.println(student.getName()));
 
