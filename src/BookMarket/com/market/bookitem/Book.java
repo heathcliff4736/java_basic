@@ -1,4 +1,4 @@
-package BookMarket;
+package BookMarket.com.market.bookitem;
 
 public class Book extends Item{
     private String author;
