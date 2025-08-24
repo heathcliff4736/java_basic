@@ -9,6 +9,7 @@ import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -29,5 +30,17 @@ public class Prob07 {
                 new Fruit("Cherry",2.99)
 
         );
+
+        //이름과  가격이 있는 제품리스트가 주어지면, 이름의 첫 글자에 따라 그룹화하여 출력하세요
+        //Collectors.groupingBy() 사용하여 이름의 첫글자에 따라 제품을 그룹화합니다.
+        //키는 과일 이름의 첫번째 문자이고 값은 그 문자로 시작하는 과일 리스트입니다.
+
+        numbers.stream()
+                .collect(Collectors.groupingBy(
+                        f -> f.getFruitName().charAt(0),
+                        Collectors.mapping(Fruit::getFruitName, Collectors.toList())))
+                .forEach(((character, fruits) -> System.out.println(fruits)));
+
+
     }
 }

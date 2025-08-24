@@ -6,6 +6,7 @@ import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -25,5 +26,15 @@ public class Prob06 {
                 new Person("Eve",35)
 
                 );
+
+        //문제 : 이름과 나이와 같은 속성을 가진 사람들의 리스트입니다. 나이에 따라 그룹화하여 결과를 출력하세요
+        numbers.stream()
+                .collect(Collectors.groupingBy(
+                        Person::getAge,
+                        Collectors.mapping(Person::getName, Collectors.toList())
+                ))
+                .forEach((age, name)-> System.out.println(age+"살: "+name));
+
+
     }
 }

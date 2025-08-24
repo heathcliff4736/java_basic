@@ -12,7 +12,7 @@ public class Prob03 {
 
         words.stream()
                 .collect(Collectors.groupingBy(String::length))
-                .forEach((l, list) -> System.out.println(list));
+                .forEach((length, list) -> System.out.println(length+"글자: "+list));
 
 
     }

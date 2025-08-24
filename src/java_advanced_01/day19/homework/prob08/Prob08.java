@@ -6,6 +6,8 @@ import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -26,5 +28,15 @@ public class Prob08 {
                 new Employee("Jim","Sales",8500)
 
         );
+
+        // 각 직원의 이름, 부서 및 급여를 가직 직원리스트입니다. 각 부서의 평균 급여를 계산하여 출력하세요
+        Map<String, Double> avgSalaryByDept = numbers.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getDepartment,
+                        Collectors.averagingDouble(Employee::getSalary)
+                ));
+
+        avgSalaryByDept.forEach((dept, avg) ->
+                System.out.println(dept + " 부서 평균 급여: " + avg));
     }
 }
