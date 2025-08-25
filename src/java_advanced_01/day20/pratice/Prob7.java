@@ -1,5 +1,6 @@
 package java_advanced_01.day20.pratice;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,5 +21,8 @@ public class Prob7 {
         }
         is.close();
         System.out.println(totalBytes);
+
+        File file = new File("C:/Temp/image1.jpg");
+        System.out.println(file.length());
     }
 }
