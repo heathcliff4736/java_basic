@@ -5,20 +5,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 class Person implements Serializable {
+    @Serial
+    private static final long serialVerionUID = 1L;
     private String name;
     private transient int age;
 }
 
 public class Prob1 {
     public static void main(String[] args) {
-
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:/Temp/person.dat"))) {
-            Person p = new Person("홍길동", 30);
+        Path path = Paths.get("C:/Temp/order.dat");
+        Person p = new Person("홍길동", 30);
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(path))) {
             oos.writeObject(p);
         } catch (IOException e) {
             e.printStackTrace();
@@ -26,8 +31,8 @@ public class Prob1 {
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:/Temp/person.dat"));){
             while (true) {
-                Object obj = ois.readObject();
-                System.out.println(obj);
+                Person p1 = (Person) ois.readObject();
+                System.out.println(p1.toString());
             }
         } catch (EOFException e) {
             System.out.println("파일 끝. ");

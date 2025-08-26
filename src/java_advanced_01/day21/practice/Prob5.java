@@ -34,7 +34,7 @@ public class Prob5 {
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:/Temp/order.dat"))) {
             Object obj = ois.readObject();
-            System.out.println(obj.toString());
+            System.out.println(obj);
         } catch (Exception e) {
             e.printStackTrace();
         }
