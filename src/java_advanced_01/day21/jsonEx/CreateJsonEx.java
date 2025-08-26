@@ -39,7 +39,7 @@ public class CreateJsonEx {
         try(Writer write = new FileWriter("ehs.json", Charset.forName("UTF-8"))) {
             write.write(json);
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
