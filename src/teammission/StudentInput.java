@@ -1,29 +1,42 @@
 package teammission;
 
 import java.io.*;
+import java.util.HashMap;
 
 public class StudentInput {
     public static void main(String[] args) {
         File file = new File("C:/Temp/student.dat");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("이름 : ");
-        try {
-            String mode = br.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Student student = new Student();
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+        HashMap<String, Student> studentInfo = new HashMap<>();
+        String line = null;
+
+        printUsage();
+
+        while(line!="exit"){
+            System.out.print("이름 : ");
+            try {
+                line = br.readLine();
+//                studentInfo.put("s1", new Student(line, line, line, line));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
 //            oos.writeObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }    
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void loadCheck(){}
 
-    public void printUsage(){}
+    public static void printUsage(){
+        System.out.println("[학생 성적 입력 프로그램]");
+        System.out.println("- 종료하려면 이름에 ^^ 를 입력하세요.");
+        System.out.println("- 점수는 0~100 사이의 정수만 허용됩니다.\n");
+    }
 
     public void checkKeyAndInputData(){}
 

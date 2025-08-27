@@ -1,8 +1,6 @@
 package java_advanced_01.day22.net.socket01;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -34,7 +32,7 @@ public class ServerSocketEx {
 
     public static void startServer() {
         // 스레드 Thread : 실행 단위
-        Thread thread = new Thread(){
+        Thread thread = new Thread() {
             @Override
             public void run() {
 
@@ -45,9 +43,9 @@ public class ServerSocketEx {
                         System.out.println("\n[Server] waiting for connection...");
                         // 연결 수락
                         Socket socket = serverSocket.accept();
-                        
+
                         // 연결된 클라이언트의 정보 얻기
-                        InetSocketAddress iA = (InetSocketAddress)socket.getRemoteSocketAddress();
+                        InetSocketAddress iA = (InetSocketAddress) socket.getRemoteSocketAddress();
                         System.out.println("\n[Server] " + iA.getAddress() + ":" + iA.getPort());
 
                         // 연결 끊기

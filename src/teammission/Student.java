@@ -17,4 +17,6 @@ public class Student implements Serializable {
     private int total;
     private double average;
     private String grade;
+
+
 }
