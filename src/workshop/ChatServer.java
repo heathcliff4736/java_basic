@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ChatServer {
-    private static final int PORT = 5000;
+    private static final int PORT = 5001;
     private static final ExecutorService POOL = Executors.newCachedThreadPool();
     private static final AtomicInteger CLIENT_SEQ = new AtomicInteger(1);
 
@@ -27,6 +27,7 @@ public class ChatServer {
                 Socket socket = serverSocket.accept();
                 // 클라이언트에게 번호 할당
                 int id = CLIENT_SEQ.getAndIncrement();
+                System.out.println("[Server] Client#" + id + " connected from " + socket.getRemoteSocketAddress());
                 POOL.submit(new ClientHandler(socket, id));
             }
         } catch (IOException e) {
@@ -52,18 +53,37 @@ public class ChatServer {
                     PrintWriter out = new PrintWriter(
                             new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true)
             ) {
-                String line;
 
+                out.println("Welcome! You are Client#" + clientId + ". Type 'exit' to quit.");
+
+                String nickname = in.readLine();
+                if(nickname.startsWith("NICK ")) {
+                    nickname = nickname.substring(nickname.indexOf(nickname) + 5);
+                    out.println(nickname);
+                    System.out.println("[Server] Client #" + clientId + ": " + nickname);
+                }
+
+                out.println(nickname+" joined");
+                String line;
+                while ((line = in.readLine()) != null) {
+                    System.out.println("[Server] From Client#" + clientId + ": " + line);
+                    if ("exit".equalsIgnoreCase(line.trim())) {
+                        out.println("Bye!");
+                        break;
+                    }
+                    out.println("Echo to #"+clientId+":"+line);
+                }
             } catch (IOException e) {
                 System.err.println("[Server] Client#" + clientId + " I/O error: " + e.getMessage());
             } finally {
                 try {
                     socket.close();
-                } catch (IOException ignored) {
-                }
+                } catch (IOException ignored) {}
                 System.out.println("[Server] Client#" + clientId + " disconnected.");
             }
 
         }
+
+
     }
 }
