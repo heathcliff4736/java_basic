@@ -24,12 +24,9 @@ public class ChatClient {
             if (greet != null) System.out.println(greet);
 
             System.out.print("Enter your Nickname: ");
-            String nickname = in.readLine();
+            String nickname = keyboard.readLine();
             out.println(nickname);
-            if(nickname.startsWith("NICK ")) {
-                nickname = nickname.substring(nickname.indexOf(nickname) + 5);
-                out.println(nickname);
-            }
+
             String msg;
             while (true) {
                 System.out.print("You> ");
