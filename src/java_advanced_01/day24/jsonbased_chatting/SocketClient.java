@@ -60,7 +60,7 @@ public class SocketClient {
                     switch (command) {
                         case "incommig" -> {
                             this.chatName = obj.getString("name");
-                            chatServer.sendToAll(this,"입장하셨습니.다");
+                            chatServer.sendToAll(this,"입장하셨습니다.");
                             chatServer.addSocketClient(this);
                             break;
                         }

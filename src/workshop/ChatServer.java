@@ -60,7 +60,7 @@ public class ChatServer {
                             new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true)
             ) {
 
-                out.println("Welcome! You are Client#" + clientId + ". Type [NICK nickname] to set nickname. Type 'exit' to quit.");
+                out.println("Welcome! You are Client#" + clientId + ". Type [NICK nickname] to set nickname. Type 'quit' to quit.");
 
 
                 String nicknameInput = in.readLine();
@@ -92,9 +92,13 @@ public class ChatServer {
                 String line;
                 while ((line = in.readLine()) != null) {
                     System.out.println("[Server] From Client#" + nickname + ": " + line);
-                    if ("exit".equalsIgnoreCase(line.trim())) {
+                    if ("/quit".equalsIgnoreCase(line.trim())) {
                         out.println("Bye!");
                         break;
+                    } else if ("/who".equalsIgnoreCase(line.trim())) {
+                        synchronized (CLIENTS_LIST) { // 동시에 여러 스레드가 접근할 수 있으므로 리스트를 락 객체로 사용
+                            for(PrintWriter client: CLIENTS_LIST) out.println(client);
+                        }
                     }
                     broadcast("[" + nickname + "] " + line);
                 }

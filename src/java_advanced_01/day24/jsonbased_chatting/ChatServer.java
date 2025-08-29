@@ -7,7 +7,9 @@ package java_advanced_01.day24.jsonbased_chatting;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -44,7 +46,7 @@ public class ChatServer {
             try {
                 while (true) {                                  // 람다식이 하는 일을 개발자가 지정
                     Socket socket = serverSocket.accept();      // accept()로 연결을 수락
-                    SocketClient client = new SocketClient();   // 통신용 SocketClient를 반복해서 생성함
+                    SocketClient client = new SocketClient(this,socket);   // 통신용 SocketClient를 반복해서 생성함
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -103,6 +105,27 @@ public class ChatServer {
         }
     }
 
+    //메소드: 메인
+    public static void main(String[] args) {
+        try {
+            ChatServer chatServer = new ChatServer();
+            chatServer.start();
+
+            System.out.println("----------------------------------------------------");
+            System.out.println("서버를 종료하려면 q를 입력하고 Enter.");
+            System.out.println("----------------------------------------------------");
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            while(true) {
+                String key = br.readLine();
+                if(key.equals("q")) 	break;
+            }
+            br.close();
+            chatServer.stop();
+        } catch(IOException e) {
+            System.out.println("[서버] " + e.getMessage());
+        }
+    }
 
 
 
