@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 public class ChatClient {
     public static void main(String[] args) {
-        int port = 5001;
+        int port = 5000;
         String host = "127.0.0.1";
 
         try (
@@ -70,7 +70,7 @@ public class ChatClient {
                 System.out.println(resp);
                 */
 
-                if ("exit".equalsIgnoreCase(msg.trim())) break;
+                if ("quit".equalsIgnoreCase(msg.trim())) break;
             }
             System.out.println("[Client] Disconnected");
         } catch (IOException e) {

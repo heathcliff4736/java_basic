@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ChatServer {
-    private static final int PORT = 5001;   // 포트번호지정
+    private static final int PORT = 5000;   // 포트번호지정
     private static final ExecutorService POOL = Executors.newCachedThreadPool();
     private static final AtomicInteger CLIENT_SEQ = new AtomicInteger(1);
     
