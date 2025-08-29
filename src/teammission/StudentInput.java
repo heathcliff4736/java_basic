@@ -13,7 +13,7 @@ public class StudentInput {
 
         printUsage();
 
-        while(line!="exit"){
+        while (line != "exit") {
             System.out.print("이름 : ");
             try {
                 line = br.readLine();
@@ -30,16 +30,19 @@ public class StudentInput {
         }
     }
 
-    public void loadCheck(){}
+    public void loadCheck() {
+    }
 
-    public static void printUsage(){
+    public static void printUsage() {
         System.out.println("[학생 성적 입력 프로그램]");
         System.out.println("- 종료하려면 이름에 ^^ 를 입력하세요.");
         System.out.println("- 점수는 0~100 사이의 정수만 허용됩니다.\n");
     }
 
-    public void checkKeyAndInputData(){}
+    public void checkKeyAndInputData() {
+    }
 
-    public void saveData(){}
+    public void saveData() {
+    }
 
 }
