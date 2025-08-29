@@ -99,7 +99,7 @@ public class ChatServer {
                     broadcast("[" + nickname + "] " + line);
                 }
             } catch (IOException e) {
-                System.err.println("[Server] Client#" + clientId + " I/O error: " + e.getMessage());
+                System.err.println("[Server] ERR ... Client#" + clientId + " I/O error: " + e.getMessage());
             } finally {
                 try {
                     socket.close();
