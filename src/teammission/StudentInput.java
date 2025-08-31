@@ -2,6 +2,7 @@ package teammission;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.List;
 
 public class StudentInput {
     public static void main(String[] args) {
@@ -90,7 +91,8 @@ public class StudentInput {
         else if (avg >= 60) grade = "D";
         else grade = "F";
 
-        return new Student(name, scores[0], scores[1], scores[2], scores[3], total, avg, grade);
+        List<Integer> scoreList = List.of(scores[0], scores[1], scores[2], scores[3]);
+        return new Student(name, scoreList, total, avg, grade);
     }
 
     public void saveData(File file, HashMap<String, Student> studentInfo) {
