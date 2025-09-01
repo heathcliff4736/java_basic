@@ -42,7 +42,7 @@ public class StudentOutput {
             Student s = datas.get(i);
             System.out.printf("%d) %s%n", i + 1, s.getName());
             System.out.printf("   점수: %s%n", s.getRecord());
-            System.out.printf("   총점: %d, 평균: %.1f, 학점: %s%n%n",
+            System.out.printf("   총점: %d, 평균: %.1f, 학점:git  %s%n%n",
                     s.getTotal(),
                     s.getAverage(),
                     s.getGrade());

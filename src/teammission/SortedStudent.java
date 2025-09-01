@@ -1,6 +1,7 @@
 package teammission;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.TreeSet;
@@ -54,7 +55,8 @@ public class SortedStudent {
         File file = new File("C:/Temp/orderByAvg.dat");
         // 파일로 만드는것 >> 직렬화
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-            oos.writeObject(sorted);
+//            oos.writeObject(sorted);
+            oos.writeObject(new ArrayList<>(sorted));
             System.out.println("[완료] 정렬된 결과를 파일로 저장했습니다.");
         } catch (IOException e) {
             e.printStackTrace();
