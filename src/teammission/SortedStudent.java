@@ -18,7 +18,7 @@ public class SortedStudent {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                System.out.println("파일을 찾을 수 없습니다: " + file.getPath());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -47,7 +47,6 @@ public class SortedStudent {
             if (count >= 10) break;
         }
         System.out.println("\n결과 파일: ./orderByAvg.dat");
-        System.out.println("[완료] 정렬된 결과를 파일로 저장했습니다.");
     }
     
 
@@ -55,9 +54,8 @@ public class SortedStudent {
         File file = new File("C:/Temp/orderByAvg.dat");
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
             oos.writeObject(sorted);
+            System.out.println("[완료] 정렬된 결과를 파일로 저장했습니다.");
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
             e.printStackTrace();
         }
     }
