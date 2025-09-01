@@ -11,6 +11,8 @@ public class StudentOutput {
     Set<String> keys = studentInfo.keySet();
 
     public void loadObjectFromFile(){
+        // 직렬화 -> 객체를 >> 바이트단위로
+        // 역직렬화 이것이
         File file = new File("C:/Temp/student.dat");
         if(file.exists()) {
             try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {

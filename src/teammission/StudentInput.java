@@ -5,11 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class StudentInput {
-    public static void main(String[] args) {
-        File file = new File("C:/Temp/student.dat");
-        HashMap<String, Student> studentInfo = new HashMap<>();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+    private static File file = new File("C:/Temp/student.dat");
+    private static HashMap<String, Student> studentInfo = new HashMap<>();
+
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StudentInput app = new StudentInput();
         app.loadCheck(file, studentInfo);
         printUsage();
