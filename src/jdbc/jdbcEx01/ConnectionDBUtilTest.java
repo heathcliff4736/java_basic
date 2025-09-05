@@ -1,7 +1,7 @@
 package jdbc.jdbcEx01;
 
-import jdbcEx01.vo.Person;
-import util.DBUtil;
+import jdbc.jdbcEx01.vo.Person;
+import jdbc.util.DBUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
